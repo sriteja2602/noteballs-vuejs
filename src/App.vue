@@ -1,10 +1,14 @@
 <script setup>
-import Navbar from "./components/layout/Navbar.vue";
+import Navbar from "./components/Layout/Navbar.vue";
+import Footer from "./components/Layout/Footer.vue";
 </script>
 
 <template>
   <Navbar/>
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
+  <Footer/>
 </template>
 
 <style>

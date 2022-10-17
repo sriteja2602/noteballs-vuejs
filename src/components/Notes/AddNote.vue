@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useNow, useDateFormat } from '@vueuse/core'
 import {useNotesStore} from '../../store/storeNotes'
 
 const storeNotes = useNotesStore()
@@ -7,20 +8,19 @@ const storeNotes = useNotesStore()
 
 const title = ref("");
 const message = ref("");
-const valid = ref(false)
 
-const addNoteValidation = () => {
-  if((title.value && message.value) != ""){
-    valid.value = true
+watch(message, (newValue) => {
+  if(newValue.length > 100){
+    alert("Max 100 cahracters allowed")
   }
-}
+})
 
 const addNote = () => {
-  
-  storeNotes.addNote(title.value, message.value)
+  const formatted = useDateFormat(useNow(), 'DD-MM-YYYY (ddd)', { locales: 'en-IN' })
+
+  storeNotes.addNote(title.value, message.value, formatted)
     title.value = ''
     message.value = ''
-  
 }
 
 const vFocus = {

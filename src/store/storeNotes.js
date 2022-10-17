@@ -35,8 +35,7 @@ export const useNotesStore = defineStore('storeNotes', {
         }
     },
     actions: {
-        addNote(title, message) {
-            let date = new Date().toLocaleString()
+        addNote(title, message, date) {
             let id = this.notes.length + 1
             
             let note = {
