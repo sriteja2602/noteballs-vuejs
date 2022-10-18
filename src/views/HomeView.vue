@@ -1,7 +1,7 @@
 <template>
     <div class="mt-6 container" >
-        <h4 class="title is-4">Title 4</h4>
-    <p>this is the about page write the damm content</p>
+        <h4 class="title is-4">Home Page</h4>
+        <p>This is the Home page</p>
     </div>
 </template>
 
