@@ -54,10 +54,8 @@ export const useNotesStore = defineStore('storeNotes', {
             this.notes[updatedId].date = updatedDate
         },
         deleteNote(idToDelete){
-            let date = new Date().toLocaleString()
-            let id = idToDelete
-
-            this.notes = this.notes.filter(note => { return note.id !== idToDelete })
+            if(confirm("Are you sure you want to delete the note?"))
+                this.notes = this.notes.filter(note => { return note.id !== idToDelete })
         },
     },
         getters:{

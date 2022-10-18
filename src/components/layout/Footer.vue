@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer pb-6" style="background-color: white;">
+  <footer class="footer pb-6 is-flex-align-items-flex-end mt-auto" style="background-color: white">
     <div class="content has-text-centered">
       <h5>
         <strong>Noteballs</strong> by
