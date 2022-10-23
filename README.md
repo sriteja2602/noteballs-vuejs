@@ -33,3 +33,18 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Publishing Vue project on Github Pages
+
+Include base: '/noteballs-vuejs/' in define config in vite config file
+Add "homepage": "https://sriteja2602.github.io/noteballs-vuejs", in package.json
+Imp: Change Router to HashRouter
+
+Once all these changes are done
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+Run git add dist && git commit -m 'adding dist subtree'
