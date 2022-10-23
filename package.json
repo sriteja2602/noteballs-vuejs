@@ -1,6 +1,7 @@
 {
   "name": "noteballs",
   "version": "0.0.0",
+  "homepage": "https://sriteja2602.github.io/noteballs-vuejs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
