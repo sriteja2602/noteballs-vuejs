@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Reem+Kufi+Fun&display=swap');
 
-html{
-    background-color: #f8f9fa;
-}
+
 
 body{
+    background-color: #f8f9fa;
     font-family: 'Lato', sans-serif;
     font-family: 'Reem Kufi Fun', sans-serif;
+}
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
