@@ -15,7 +15,7 @@ const storeNotes = useNotesStore()
 </script>
 
 <template>
-  <div class="card notesView mx-auto my-6 notesView">
+  <div class="card notesView mx-auto my-6">
     <div class="card-content">
       <div class="media">
         <div class="media-left">
@@ -37,8 +37,8 @@ const storeNotes = useNotesStore()
       </div>
     </div>
     <footer class="card-footer">
-      <RouterLink :to="`/notes/edit/${note.id}`" class="card-footer-item">Edit</RouterLink>
       <a href="#" @click.prevent="storeNotes.deleteNote(note.id)" class="card-footer-item">Delete</a>
+      <RouterLink :to="`/notes/edit/${note.id}`" class="card-footer-item">Edit</RouterLink>
     </footer>
   </div>
 </template>

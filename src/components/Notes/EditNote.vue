@@ -11,12 +11,23 @@ const noteEdit = storeNotes.getEditNote(route.params.id)
 const editTitle = ref(noteEdit.title)
 const editMessage = ref(noteEdit.message)
 
-const saveNote = () => {
+async function saveNote  ()  {
     let date = new Date().toLocaleString()
-    storeNotes.updateNote(route.params.id - 1, editTitle.value, editMessage.value, date)
+    if((editTitle.value || editMessage.value) != ''){
+
+      storeNotes.updateNote(route.params.id - 1, editTitle.value, editMessage.value, date)
+    }
 
     router.push('/notes')
 }
+
+async function reloadPage() {
+  await saveNote();
+  setTimeout(() => {
+    location.reload()
+  }, 1000);
+}
+
 
 const cancelEdit = () => {
     router.push('/notes')
@@ -52,7 +63,7 @@ const cancelEdit = () => {
             <button @click="cancelEdit" class="button is-link is-light">Cancel</button>
           </div>
           <div class="control">
-            <button @click="saveNote" class="button is-link">Save</button>
+            <button @click="reloadPage" class="button is-link">Save</button>
           </div>
         </div>
       </div>
