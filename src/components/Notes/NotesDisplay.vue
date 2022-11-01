@@ -1,6 +1,6 @@
 <script setup>
 import { useNotesStore } from '../../store/storeNotes';
-
+import { onMounted } from 'vue';
 
 const props = defineProps({
   note: {
@@ -10,7 +10,6 @@ const props = defineProps({
 });
 
 const storeNotes = useNotesStore()
-
 
 </script>
 
@@ -32,8 +31,9 @@ const storeNotes = useNotesStore()
         </div>
       </div>
 
-      <div class="content">
-        {{ note.message }}
+      <div class="content" id="content">
+        <!-- {{note.message}} -->
+        <div v-html="note.message"></div>
       </div>
     </div>
     <footer class="card-footer">
@@ -49,7 +49,7 @@ const storeNotes = useNotesStore()
 }
 @media only screen and (max-width: 600px) {
   .notesView {
-    width: 100%;
+    width: 90%;
   }
 }
 </style>
