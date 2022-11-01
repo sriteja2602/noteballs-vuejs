@@ -72,7 +72,7 @@ const addNote = () => {
         <div class="field">
           <label class="label">Message</label>
           <div class="control">
-            <textarea v-model="message" class="textarea" placeholder="Note Comment"></textarea>
+            <textarea v-model="message" class="textarea" placeholder="Note Description (Markdown enabled)"></textarea>
           </div>
         </div>
 
