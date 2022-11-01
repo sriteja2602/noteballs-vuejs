@@ -8,6 +8,6 @@
 <style scoped>
 .container{
     text-align: center;
-    padding-top: 10%;
+    padding: 10%;
 }
 </style>

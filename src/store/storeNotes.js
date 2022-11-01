@@ -35,7 +35,6 @@ export const useNotesStore = defineStore('storeNotes', {
             // this.notes[updatedId].message = updatedMessage
             // this.notes[updatedId].date = updatedDate
             let localStorageNotes = JSON.parse(localStorage.getItem("notes"));
-            console.log(updatedId);
             localStorageNotes[localStorageNotes.length - updatedId - 1].title = updatedTitle;
             localStorageNotes[localStorageNotes.length - updatedId - 1].message = updatedMessage
             localStorageNotes[localStorageNotes.length - updatedId - 1].date = updatedDate
