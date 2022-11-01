@@ -1,7 +1,12 @@
 <script setup>
-import { ref, watch } from "vue";
+import { markRaw, onMounted, ref, watch } from "vue";
 import { useNow, useDateFormat } from '@vueuse/core'
 import {useNotesStore} from '../../store/storeNotes'
+import {marked} from 'marked'
+// import Quill from 'quill';
+// import 'quill/dist/quill.core.css';
+// import 'quill/dist/quill.bubble.css';
+// import 'quill/dist/quill.snow.css'; 
 
 const storeNotes = useNotesStore()
 
@@ -11,21 +16,39 @@ const message = ref("");
 
 watch(message, (newValue) => {
   if(newValue.length > 100){
-    alert("Max 100 cahracters allowed")
+    alert("Max 100 characters allowed")
   }
 })
-
-const addNote = () => {
-  const formatted = useDateFormat(useNow(), 'DD-MM-YYYY (ddd)', { locales: 'en-IN' })
-
-  storeNotes.addNote(title.value, message.value, formatted)
-    title.value = ''
-    message.value = ''
-}
 
 const vFocus = {
   mounted: (el) => el.focus()
 }
+
+
+// onMounted(() => {
+//   var toolbarOptions = ['bold', 'italic', 'underline', 'strike'];
+
+//   var quill = new Quill('#toolbar', {
+//     theme: 'snow',
+//     toolbar: toolbarOptions,
+//     placeholder: "Message"
+//   });
+//   quill.on('text-change', () => {
+//     message.value = quill.getText()
+//   })
+
+// })
+
+
+const addNote = () => {
+  const formatted = useDateFormat(useNow(), 'DD-MM-YYYY (ddd)', { locales: 'en-IN' })
+  // console.log(message);
+  const messageHtml = marked.parse(message.value)
+  storeNotes.addNote(title.value, messageHtml, formatted)
+    title.value = ''
+    message.value = ''
+}
+
 </script>
 
 
@@ -45,7 +68,7 @@ const vFocus = {
             <input v-focus v-model="title" class="input" type="text" placeholder="Note Title" />
           </div>
         </div>
-
+        
         <div class="field">
           <label class="label">Message</label>
           <div class="control">
@@ -68,7 +91,9 @@ const vFocus = {
 
 <style scoped>
 
-
+#toolbar{
+  height: 130px;
+}
 .addNote {
   width: 50%;
 }
