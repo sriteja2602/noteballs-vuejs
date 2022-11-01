@@ -64,3 +64,8 @@ Run
 ```sh
 git add dist && git commit -m 'adding dist subtree'
 ```
+
+Run 
+```sh
+git subtree push --prefix dist origin gh-pages
+```
