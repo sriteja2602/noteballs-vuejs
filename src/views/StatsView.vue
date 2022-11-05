@@ -6,7 +6,7 @@ const totalNotes = storeNotes.totalStats
 const totalCharacters = storeNotes.totalCharactersCount
 </script>
 <template>
-    <div class="container" style="padding-top: 10%;">
+    <div class="container animate__animated animate__fadeInLeft" style="padding-top: 10%;">
         <div class="card my-6 container">
         <table class="table is-fullwidth" style=" text-align: center;">
             <thead>
@@ -18,11 +18,11 @@ const totalCharacters = storeNotes.totalCharactersCount
             <tbody>
                 <tr>
                     <td>Total Notes</td>
-                    <td>{{totalNotes}}</td>
+                    <td className="animate__animated animate__fadeIn animate__delay-1s">{{totalNotes}}</td>
                 </tr>
                 <tr>
                     <td>Total Note Characters</td>
-                    <td>{{totalCharacters}}</td>
+                    <td className="animate__animated animate__fadeIn animate__delay-1s">{{totalCharacters}}</td>
                 </tr>
             </tbody>
         </table>
