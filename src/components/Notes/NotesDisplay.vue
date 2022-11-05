@@ -1,6 +1,5 @@
 <script setup>
 import { useNotesStore } from '../../store/storeNotes';
-import { onMounted } from 'vue';
 
 const props = defineProps({
   note: {
@@ -8,13 +7,12 @@ const props = defineProps({
     required: true,
   },
 });
-
 const storeNotes = useNotesStore()
 
 </script>
 
 <template>
-  <div class="card notesView mx-auto my-6">
+  <div class="card notesView mx-auto my-6 animate__animated animate__bounceInUp">
     <div class="card-content">
       <div class="media">
         <div class="media-left">
@@ -44,6 +42,10 @@ const storeNotes = useNotesStore()
 </template>
 
 <style scoped>
+.animate__bounceInUp{
+  --animate-duration: 4s;
+
+}
 .notesView {
   width: 70%;
 }
